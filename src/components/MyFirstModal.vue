@@ -21,7 +21,7 @@
     
 <script>
 export default {
-    name: "MyirstModal",
+    name: "MyFirstModal",
     props: {
         modalTitle: {
             type: String,
