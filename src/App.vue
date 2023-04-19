@@ -1,33 +1,52 @@
 <template>
+<input :value="text"  ref="myInput" />
+<button @click="focusOnInput">Focus</button>
 
-  <MyFirstModal modalTitle="Sign Up for the GiveAway" modalContent="Grab Your ninja swag for half price">
+<MyFirstModal modalTitle="Sign Up for the GiveAway" modalContent="Grab Your ninja swag for half price">
     <template #links>
-      <a href="#" class="text-white rounded bg-green-500 px-4 py-2 font-sans font-semibold shadow-lg hover:bg-green-400 outline-none active:outline-none">Green Button</a>
-      <a href="#" class="text-white rounded bg-red-500 px-4 py-2 font-sans font-semibold shadow-lg hover:bg-red-400 outline-none active:outline-none">Red Button</a>
+        <a href="#" class="text-white rounded bg-green-500 px-4 py-2 font-sans font-semibold shadow-lg hover:bg-green-400 outline-none active:outline-none">Green Button</a>
+        <a href="#" class="text-white rounded bg-red-500 px-4 py-2 font-sans font-semibold shadow-lg hover:bg-red-400 outline-none active:outline-none">Red Button</a>
     </template>
-  </MyFirstModal>
-
+</MyFirstModal>
 </template>
-
 
 <script>
 import MyFirstModal from './components/MyFirstModal.vue';
 
 export default {
-components: {
-MyFirstModal
-},
+    components: {
+        MyFirstModal
+    },
+    methods : {
+      focusOnInput() {
+        this.$refs.myInput.focus();
+      }
+    },
+    data() {
+      return {
+        message : ''
+      }
+    }
 };
 </script>
 
-
 <style>
 #app {
-font-family: Avenir, Helvetica, Arial, sans-serif;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-text-align: center;
-color: #2c3e50;
-margin-top: 60px;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+}
+
+input{
+  border: 1px solid grey;
+  margin-top: 1%;
+}
+
+button{
+  border: 1px solid grey;
+
 }
 </style>
