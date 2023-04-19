@@ -3,7 +3,11 @@
 <button @click="focusOnInput">Focus</button>
 <button class="text-white rounded bg-pink-500 px-6 py-4 font-sans font-semibold shadow-lg hover:bg-pink-400 outline-none active:outline-none mt-5" @click="toggleModal = !toggleModal">Open Modal</button>
 
-<MyFirstModal modalTitle="Sign Up for the GiveAway" modalContent="Grab Your ninja swag for half price" :show-modal="toggleModal" @update:showModal = "toggleModal = $event">
+<MyFirstModal modalTitle="Sign Up for the GiveAway" modalContent="Grab Your ninja swag for half price" :show-modal="toggleModal" @updateShowModal = "toggleModal = $event">
+  <template v-slot:links>
+        <a href="#" class="text-white rounded bg-green-500 px-4 py-2 font-sans font-semibold shadow-lg hover:bg-green-400 outline-none active:outline-none">Green Button</a>
+        <a href="#" class="text-white rounded bg-red-500 px-4 py-2 font-sans font-semibold shadow-lg hover:bg-red-400 outline-none active:outline-none">Red Button</a>
+    </template>
 </MyFirstModal>
 </template>
 
@@ -23,7 +27,7 @@ export default {
     },
     data() {
         return {
-          
+
             message: '',
             toggleModal: false
         }
