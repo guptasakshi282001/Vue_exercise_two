@@ -4,7 +4,7 @@
         <div class="absolute inset-0 bg-black opacity-25" @click.self="closeModal"></div>
         <div class="relative mx-auto w-auto max-w-2xl">
             <div class="bg-white rounded shadow-xl w-96 h-56 flex flex-col">
-                <div class="text-sky-500 text-2xl font-bold px-4 py-6">{{ modalTitle }}</div>
+                <div class="text-sky-500 text-2xl font-bold px-4 py-6" v-bind:class="{'text-red-500': theme === 'sale'}">{{ modalTitle }}</div>
                 <span>{{ modalContent }}</span>
                 <div class="mt-4">
                     <slot name="links">
@@ -33,7 +33,11 @@ export default {
             type: Boolean,
             required: true,
             default: false
-        }
+        },
+        theme: {
+            type:String,
+            default : "",
+        },
     },
     methods: {
         closeModal() {
