@@ -3,9 +3,9 @@
     <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50" v-if="showModal">
         <div class="absolute inset-0 bg-black opacity-25" @click.self="closeModal"></div>
         <div class="relative mx-auto w-auto max-w-2xl">
-            <div class=" rounded shadow-xl w-96 h-56 flex flex-col" v-bind:class="theme === 'sale' ? 'bg-rose-600' : 'bg-white'">
-                <div class="text-sky-500 text-2xl font-bold px-4 py-6" v-bind:class="theme === 'sale' ? 'text-white' : 'text-black'">{{ modalTitle }}</div>
-                <span v-bind:class="theme === 'sale' ? 'text-white' : 'text-black'">{{ modalContent }}</span>
+            <div class=" rounded shadow-xl w-96 h-56 flex flex-col" v-bind:class="theme === 'sale' ? 'bg-rose-600 text-white' : 'bg-white text-black'">
+            <div class=" text-2xl font-bold px-4 py-6">{{ modalTitle }}</div>
+                <span >{{ modalContent }}</span>
                 <div class="mt-4">
                     <slot name="links">
                     </slot>
