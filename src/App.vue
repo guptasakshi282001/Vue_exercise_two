@@ -1,26 +1,62 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<input :value="text" ref="myInput" />
+<button @click="focusOnInput">Focus</button>
+<button class="text-white rounded bg-pink-500 px-6 py-4 font-sans font-semibold shadow-lg hover:bg-pink-400 outline-none active:outline-none mt-5" @click = openModal()>Open Modal</button>
+
+<my-first-modal modalTitle="Sign Up for the GiveAway" modalContent="Grab Your ninja swag for half price" theme="sale" :show-modal="isModalVisible" @updateShowModal="hideModal">
+  <template v-slot:links>
+        <a href="#" class="text-white rounded bg-green-500 px-4 py-2 font-sans font-semibold shadow-lg hover:bg-green-400 outline-none active:outline-none">Green Button</a>
+        <a href="#" class="text-white rounded bg-red-500 px-4 py-2 font-sans font-semibold shadow-lg hover:bg-red-400 outline-none active:outline-none">Red Button</a>
+    </template>
+</my-first-modal>
 </template>
 
+  
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MyFirstModal from './components/MyFirstModal.vue';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+    components: {
+        MyFirstModal
+    },
+    methods: {
+        focusOnInput() {
+            this.$refs.myInput.focus();
+        },
+        openModal() {
+            this.isModalVisible = true;
+        },
+        hideModal() {
+            this.isModalVisible = false;
+        }
+    },
+    data() {
+        return {
+            message :"",
+            isModalVisible : false,
+        }
+    }
+};
+</script> 
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+}
+
+input {
+    border: 1px solid grey;
+    margin-top: 1%;
+}
+
+button {
+    border: 1px solid grey;
+
 }
 </style>
